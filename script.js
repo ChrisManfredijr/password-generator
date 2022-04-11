@@ -4,7 +4,7 @@ function generatePassword() {
   var lowerCase = "abcdefghijklmnopqrstupwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numberCase = "1234567890";
-  var specialCase = " !”#$%&’()*+,-./:;<=>?@[\\]^_`{|}~";
+  var specialCase = " !”#$%&’()*+,-./:;<=>?@[\]^_`{|}~";
   var passLength = "";
   var passwordFinal = "";
 
@@ -15,6 +15,8 @@ function generatePassword() {
 
   //this function asks the user what characters to include in the password, if no characters are selected, the function repeats. 
   function characterGenerator() {
+
+    //each if statement concatinates the the character type to character pool if selected
     if(window.confirm("Include lowercase letters?")){
       characterPool += lowerCase;
     }
@@ -31,6 +33,7 @@ function generatePassword() {
       characterPool += specialCase;
     }
 
+    //the characterPool variable is the sum of all character types selected by the user, if no character types are selected and the string is empty, the function will repeat
     if(characterPool === ""){
       window.alert("You did not select any character types! please try again")
       characterGenerator();
@@ -39,6 +42,7 @@ function generatePassword() {
 
   //this function asks the user to enter a password length within paramaters, if they don't enter a correct value, the function repeats
   function passwordLength() {
+
     passLength = window.prompt("Please enter a password length between 8 and 128 characters");
     if(passLength < 8 || passLength > 128){
       passwordLength();
