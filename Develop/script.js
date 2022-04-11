@@ -5,10 +5,14 @@ function generatePassword() {
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numberCase = "1234567890";
   var specialCase = " !”#$%&’()*+,-./:;<=>?@[\]^_`{|}~";
-  
-  characterGenerator();
+  var passLength;
 
-  //this function asks the user what characters to include in the password, if no characters are selected, the function repeats
+  characterGenerator();
+  passwordLength();
+  passwordRandomizer();
+
+
+  //this function asks the user what characters to include in the password, if no characters are selected, the function repeats. 
   function characterGenerator() {
     if(window.confirm("Include lowercase letters?")){
       characterPool += lowerCase;
@@ -31,6 +35,14 @@ function generatePassword() {
       characterGenerator();
     }
   }
+
+  function passwordLength() {
+    passLength = window.prompt("Please enter a password length between 8 and 128 characters");
+    if(passLength < 8 || passLength > 128){
+      passwordLength();
+    }
+  }
+
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
