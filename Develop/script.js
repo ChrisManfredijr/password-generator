@@ -4,8 +4,9 @@ function generatePassword() {
   var lowerCase = "abcdefghijklmnopqrstupwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numberCase = "1234567890";
-  var specialCase = " !”#$%&’()*+,-./:;<=>?@[\]^_`{|}~";
-  var passLength;
+  var specialCase = " !”#$%&’()*+,-./:;<=>?@[\\]^_`{|}~";
+  var passLength = "";
+  var passwordFinal = "";
 
   characterGenerator();
   passwordLength();
@@ -36,13 +37,21 @@ function generatePassword() {
     }
   }
 
+  //this function asks the user to enter a password length within paramaters, if they don't enter a correct value, the function repeats
   function passwordLength() {
     passLength = window.prompt("Please enter a password length between 8 and 128 characters");
     if(passLength < 8 || passLength > 128){
       passwordLength();
     }
   }
-
+  
+  //takes the defined character pool and randomizes it
+  function passwordRandomizer() {
+    for(let i = 0; i <= passLength; i++){
+      passwordFinal += characterPool.charAt(Math.floor(Math.random() * characterPool.length));
+    }
+  }
+  return passwordFinal;
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
