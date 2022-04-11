@@ -8,7 +8,7 @@ to build a website which auto-generates passwords based on user inputed criteria
 * CSS
 * Javascript
 
-![Password Generator website](/Develop/assets/screenshot.PNG)
+![Password Generator website](/assets/screenshot.PNG)
 
 ## Website 
 https://chrismanfredijr.github.io/password-generator/
