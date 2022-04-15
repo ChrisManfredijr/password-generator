@@ -51,7 +51,7 @@ function generatePassword() {
   
   //takes the defined character pool and randomizes it
   function passwordRandomizer() {
-    for(let i = 0; i <= passLength; i++){
+    for(let i = 0; i <= passLength - 1; i++){
       passwordFinal += characterPool.charAt(Math.floor(Math.random() * characterPool.length));
     }
   }
